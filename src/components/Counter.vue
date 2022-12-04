@@ -7,9 +7,14 @@
     + 1
   </button>
   <OtherComponent />
-  <div style="padding: 20px; border: 1px solid black">
-    <slot />
+  <div v-if="showTheSlot">
+    <div className="slot">
+      <slot />
+    </div>
   </div>
+  <button v-else @click="(showTheSlot = true)">
+    Show the Slot
+  </button>
 </div>
 </template>
 
@@ -19,10 +24,13 @@ import { useStore } from '@nanostores/vue'
 import OtherComponent from './OtherComponent.vue'
 
 import { ref } from 'vue';
-
+const showTheSlot = ref(false)
 const $count = useStore(count)
 </script>
 
 <style scoped>
-
+.slot {
+  padding: 20px;
+  border: 1px solid black;
+}
 </style>
