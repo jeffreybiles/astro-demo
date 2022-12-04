@@ -7,7 +7,7 @@ export default function Counter() {
   const $count = useStore(count);
 
   return (
-    <div>
+    <div className='react-component'>
       <p>You clicked {$count} times</p>
       <button onClick={() => count.set($count + 1)}>
         Click me

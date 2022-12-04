@@ -6,10 +6,16 @@ import ReactCounter from '../components/Counter';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
+	<main class="astro">
 		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<VueCounter client:load />
+		<VueCounter client:load class="vue-component">
+			<div class="astro">
+				Hey
+				<ReactCounter client:load />
+			</div>
+		</VueCounter>
 		<ReactCounter client:load />
+
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -81,5 +87,23 @@ import ReactCounter from '../components/Counter';
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 1rem;
 		padding: 0;
+	}
+</style>
+
+<style is:global>
+	.vue-component {
+		border: 2px solid green;
+		padding: 4px;
+		background-color: lightgreen;
+	}
+	.react-component {
+		border: 2px solid blue;
+		padding: 4px;
+		background-color: lightblue;
+	}
+	.astro {
+		border: 2px solid purple;
+		padding: 4px;
+		background-color: plum;
 	}
 </style>
